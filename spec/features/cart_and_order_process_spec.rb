@@ -165,7 +165,7 @@ feature 'Admin can do stuff with products' do
                   end
 
                   scenario 'can view previous orders' do
-                    expect(page).to have_text Date.today.strftime("%m/%d/%y")
+                    expect(page).to have_text "Order ID"
                     expect(page).to have_text "2099.79"
                   end
 

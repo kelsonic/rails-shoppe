@@ -12,7 +12,6 @@ feature 'User creates an account' do
 
     scenario 'visit categories index' do
       expect(page).to have_text "Categories"
-      expect(page).to have_button "Show"
     end
 
   end

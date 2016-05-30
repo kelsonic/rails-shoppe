@@ -431,3 +431,315 @@ Binary data inserted for `string` type on column `password_digest`
 Binary data inserted for `string` type on column `password_digest`
   [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("admin", "created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["admin", "t"], ["created_at", "2016-05-30 00:58:20.544597"], ["email", "tim@tim.com"], ["password_digest", "$2a$10$cOz/R4EUtolCeRHmgqT6UeNAMKpEse2fNOVEHz/Mg6WhzStPvzNk."], ["updated_at", "2016-05-30 00:58:20.544597"], ["username", "tim"]]
   [1m[35m (27.5ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 18:16:05 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.haml within layouts/application (8.2ms)
+  Rendered layouts/_head.haml (792.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered layouts/_nav.haml (24.2ms)
+  Rendered layouts/_notices.haml (2.0ms)
+  Rendered layouts/_footer.haml (0.6ms)
+  Rendered layouts/_scripts.haml (0.6ms)
+Completed 200 OK in 881ms (Views: 842.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 18:16:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:06 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:06 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:06 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:06 -0700
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2016-05-29 18:16:09 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 18:16:09 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.haml within layouts/application (5.0ms)
+  Rendered layouts/_head.haml (33.8ms)
+  Rendered layouts/_nav.haml (0.4ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:09 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:09 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:09 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:09 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 18:16:09 -0700
+
+
+Started GET "/users/new" for 127.0.0.1 at 2016-05-29 18:19:00 -0700
+Processing by UsersController#new as HTML
+  Rendered users/new.haml within layouts/application (520.8ms)
+  Rendered layouts/_head.haml (37.7ms)
+  Rendered layouts/_nav.haml (6.3ms)
+  Rendered layouts/_notices.haml (2.7ms)
+  Rendered layouts/_footer.haml (0.9ms)
+  Rendered layouts/_scripts.haml (0.6ms)
+Completed 200 OK in 577ms (Views: 576.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-29 18:20:00 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY=", "user"=>{"username"=>"someshit", "email"=>"someshit@someshit.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('someshit') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('someshit@someshit.com') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 01:20:00.156155"], ["email", "someshit@someshit.com"], ["password_digest", "$2a$10$JNGXRwx54SNsmnatX4BSouL7p6YAwmDD.pUvu5AnggJzzv0DWAx8u"], ["updated_at", "2016-05-30 01:20:00.156155"], ["username", "someshit"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Completed 500 Internal Server Error in 240ms
+
+SendGrid::Exception ({"errors":["Permission denied, wrong credentials"],"message":"error"}):
+  app/controllers/users_controller.rb:23:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 3]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-29 18:26:36 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY=", "user"=>{"username"=>"someshit", "email"=>"someshit@someshit.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('someshit') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('someshit@someshit.com') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 01:26:36.313196"], ["email", "someshit@someshit.com"], ["password_digest", "$2a$10$HrpaegvCxVZmSTaMQpCbl.kmIHB8p.GWNyLxQcMi798/nohMfOa76"], ["updated_at", "2016-05-30 01:26:36.313196"], ["username", "someshit"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 212ms
+
+SendGrid::Exception ({"errors":["Permission denied, wrong credentials"],"message":"error"}):
+  app/controllers/users_controller.rb:23:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  [1m[35m (2.3ms)[0m  commit transaction
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-29 18:27:46 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY=", "user"=>{"username"=>"someshit", "email"=>"someshit@someshit.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('someshit') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('someshit@someshit.com') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 01:27:46.877985"], ["email", "someshit@someshit.com"], ["password_digest", "$2a$10$bwIORP.HraAGm.KQBzYKReiAQ/aXxzCIBsL.FUYYfexOBHYP8CyHO"], ["updated_at", "2016-05-30 01:27:46.877985"], ["username", "someshit"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Completed 500 Internal Server Error in 615ms
+
+SendGrid::Exception ({"errors":["Permission denied, wrong credentials"],"message":"error"}):
+  app/controllers/users_controller.rb:23:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+  [1m[35m (2.4ms)[0m  commit transaction
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-29 18:33:31 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY=", "user"=>{"username"=>"someshit", "email"=>"someshit@someshit.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('someshit') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('someshit@someshit.com') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 01:33:32.017440"], ["email", "someshit@someshit.com"], ["password_digest", "$2a$10$NszgLT6/M5y7FQEG0TMzQ.LAG2By3S3cGz5PzvxKyFt2qAAcYyKsW"], ["updated_at", "2016-05-30 01:33:32.017440"], ["username", "someshit"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 621ms
+
+SendGrid::Exception ({"errors":["Permission denied, wrong credentials"],"message":"error"}):
+  app/controllers/users_controller.rb:23:in `create'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-29 18:34:46 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY=", "user"=>{"username"=>"someshit", "email"=>"someshit@someshit.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('someshit') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('someshit@someshit.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.haml within layouts/application (5.0ms)
+  Rendered layouts/_head.haml (38.5ms)
+  Rendered layouts/_nav.haml (0.6ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 58ms (Views: 51.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 18:34:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 18:34:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 18:34:46 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 18:34:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 18:34:46 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 18:34:46 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-29 18:36:16 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY=", "user"=>{"username"=>"someshit", "email"=>"someshit@someshit.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('someshit') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('someshit@someshit.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.haml within layouts/application (2.7ms)
+  Rendered layouts/_head.haml (52.6ms)
+  Rendered layouts/_nav.haml (0.8ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 74ms (Views: 63.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 18:36:16 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 18:36:16 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 18:36:16 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 18:36:16 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 18:36:16 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 18:36:16 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 18:36:33 -0700
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-29 18:37:05 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IxgkNP6BPwbQuOWa+fsTxm8GA0b23gp/VVN5v0LjBEY=", "user"=>{"username"=>"someshit", "email"=>"someshit@someshit.com", "password"=>"[FILTERED]"}, "commit"=>"Create Account"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('someshit') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('someshit@someshit.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.haml within layouts/application (2.6ms)
+  Rendered layouts/_head.haml (35.7ms)
+  Rendered layouts/_nav.haml (0.4ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 51ms (Views: 44.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 18:37:05 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:05 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:05 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:05 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:05 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:05 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 18:37:06 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.5ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.haml within layouts/application (4.3ms)
+  Rendered layouts/_head.haml (50.7ms)
+  Rendered layouts/_nav.haml (0.4ms)
+  Rendered layouts/_notices.haml (0.2ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 66ms (Views: 62.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 -0700
