@@ -1,0 +1,17 @@
+%h1
+  Your Orders
+
+
+%table.table.table-striped.center
+  %thead
+    %tr
+      %th.center Order ID
+      %th.center Date
+      %th.center Total
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= link_to "#{order.id}: View", order_path(order)
+        %td= order.updated_at.strftime("%m/%d/%y")
+        %td
+          $#{calculate_order_total(order)}

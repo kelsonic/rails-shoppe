@@ -1,0 +1,8 @@
+= form_tag(new_cart_path, method: "get", id: "add-to-cart-form") do
+  = hidden_field_tag "product_id", @product.id
+  = label_tag(:quantity, "Quantity Desired:")
+  %br
+  = text_field_tag(:quantity)
+  %br
+  %br
+  = submit_tag("Add to Cart")

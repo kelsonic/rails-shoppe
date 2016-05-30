@@ -1,0 +1,11 @@
+%h1 Browser
+
+- @products.each_slice(3) do |row|
+	.products.row
+		- row.each do |product|
+			.product.col-md-3
+				%h2= product.name
+				.index-image= image_tag(product.image_url)
+				%p.price
+					$#{product.price}
+				%button.btn.btn-primary= link_to 'Show', product

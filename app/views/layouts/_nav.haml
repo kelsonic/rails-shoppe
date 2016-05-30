@@ -1,0 +1,26 @@
+%nav.navbar.navbar-default{:role => "navigation"}
+  .navbar-header
+    %a.navbar-brand= link_to "Robot Shop", root_path
+  %div
+    %ul.nav.navbar-nav
+      %li
+        =link_to "Categories", categories_path
+      - if current_user.nil?
+        %li
+          =link_to "Login", login_path
+        %li
+          =link_to "Sign Up", new_user_path
+      - else
+        - if current_user.admin == true
+          %li
+            =link_to "Admin", admin_path
+        %li
+          = link_to "Order History", user_orders_path(current_user.id)
+        %li
+          = link_to "Logout", logout_path, method: "delete", class: "logout"
+        %li
+          = link_to image_tag("#{current_user.image_url}", class: "profile-img"), my_cart_path
+        %li
+          = link_to "<i class='glyphicon glyphicon-shopping-cart' id='cart'></i>".html_safe, my_cart_path
+
+

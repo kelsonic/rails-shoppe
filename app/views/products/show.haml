@@ -1,0 +1,25 @@
+.product-show
+  %h1
+    = @product.name
+  %h3
+    Categories:
+  - @product.categories.each do |category|
+    %p= category.name
+  %div.product-show-image
+    = image_tag(@product.image_url)
+  %p.price
+    $#{@product.price}
+  %p.description
+    = @product.description
+  %p
+    %strong Inventory:
+    = @product.inventory_quantity
+  - if @product.inventory_quantity > 0
+    = render 'add_to_cart_form'
+  - else
+    %button.btn.btn-default.center
+      Out of Stock
+    %br
+
+  %br
+  %button.btn.btn-primary= link_to 'Back', products_path

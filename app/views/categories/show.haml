@@ -1,0 +1,22 @@
+%h1
+  = @category.name
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Image
+      %th Description
+      %th Price
+      %th{:colspan => "1"}
+  %tbody
+    - @category.products.each do |product|
+      %tr
+        %td= product.name
+        %td= image_tag(product.image_url)
+        %td= product.description.truncate(40)
+        %td
+          $#{product.price}
+        %td= link_to 'Show', product
+%br
+%button.btn.btn-primary= link_to 'Back', categories_path

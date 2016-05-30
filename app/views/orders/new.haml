@@ -1,0 +1,25 @@
+%h1
+  Confirm Your Order
+
+%table.table.table-striped.center
+  %thead
+    %tr
+      %th.center Name
+      %th.center Description
+      %th.center Quantity
+      %th.center Price
+  %tbody
+    - @cart_products.each do |prod_and_qty|
+      %tr
+        %td= prod_and_qty[:product].name
+        %td= prod_and_qty[:product].description.truncate(40)
+        %td= prod_and_qty[:quantity]
+        %td
+          $#{(prod_and_qty[:product].price) * (prod_and_qty[:quantity])}
+
+
+
+%div.center
+  %p
+    Total Cost: $#{@total_cost}
+  %button.btn.btn-success= link_to "Purchase", orders_path, method: :post

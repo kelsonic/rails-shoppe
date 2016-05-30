@@ -1,0 +1,11 @@
+%h1
+  Categories
+
+.products
+  - @categories.each do |category|
+    .product
+      %h2= category.name
+      %img.index-image= image_tag("category.jpg")
+      %br
+      %br
+      %button.btn.btn-primary= link_to 'Show', category

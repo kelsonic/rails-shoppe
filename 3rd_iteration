@@ -1,0 +1,30 @@
+TASKS COMPLETED:
+
+
+[DONE] The client wants users. Add user registration and login. There should be an admin user who will have access to the admin console.
+
+[DONE] Rails has_secure_password (bcrypt) is sufficient for the auth.
+
+[DONE] Turns out HTTP Basic Authentication has some flaws. Replace it with session based authentication and authorization with a Users table.
+
+[DONE] Products should be classified into categories. A product can have many categories and a category can have many products. On the home page, have a link that shows all the categories available for selection. When a particular category is clicked, show all products that have that category.
+
+[DONE] A product’s show page should show which categories the product is in
+
+[DONE] Update the tests for categories and for your new authentication scheme.
+
+[DONE] Now that we have users the client wants us to start spamming them constantly. Build an ActionMailer adapter for your app that will send a welcome email when the user signs up.
+
+
+TASKS TO COMPLETE:
+
+
+None.
+
+
+STRETCH ONLY:
+
+
+Consider using OAuth with Gmail/Facebook for your user model.
+
+Advanced Tutorial with Redis & Sidekiq, as an alternative to Delayed Job.

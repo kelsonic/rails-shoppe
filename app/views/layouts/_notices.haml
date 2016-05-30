@@ -1,0 +1,10 @@
+- if flash[:errors]
+  %div#FlashError
+    %ul
+      - flash[:errors].each do |error|
+        %li{:class => "alert alert-error"}= error
+
+- elsif flash[:success]
+  %div#FlashNotice
+    %ul
+      %li{:class => "alert alert-success"}= flash[:success]

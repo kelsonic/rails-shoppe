@@ -1,0 +1,23 @@
+%h1 Thank you for your order, #{current_user.username}!
+
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th.center Name
+      %th.center Description
+      %th.center Quantity
+      %th.center Total Price
+  %tbody
+    - @order.products.each do |product|
+      %tr
+        %td=product.name
+        %td=product.description
+        %td=@order.order_products.find_by(product_id: product.id).quantity
+        %th.center=product.price * @order.order_products.find_by(product_id: product.id).quantity
+
+%div.center
+  %h3 Order Total: #{@total_cost}
+
+  %button.btn.btn-primary
+    =link_to "Buy More Robots!", root_path
