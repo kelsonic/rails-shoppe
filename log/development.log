@@ -1,0 +1,433 @@
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "category_products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "product_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "order_products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX "index_order_products_on_order_id" ON "order_products" ("order_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_order_products_on_order_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_order_products_on_order_id' AND type='index'
+
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX "index_order_products_on_product_id" ON "order_products" ("product_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "total" decimal, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "image_url" varchar(255), "description" varchar(255), "inventory_quantity" integer, "price" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "password_digest" varchar(255), "provider" varchar(255), "uid" varchar(255), "name" varchar(255), "oauth_token" varchar(255), "oauth_expires_at" varchar(255), "image_url" varchar(255) DEFAULT 'https://robohash.org/ipsumipsatemporibus.png?size=300x300&set=set1', "admin" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160527214136')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160523220337')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160525212014')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160525234829')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160525235436')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160527213843')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:52.922044"], ["description", "Deleniti a distinctio magnam vitae. Alias quia sed repudiandae consectetur qui autem at. Enim dolorem fuga explicabo omnis non iure architecto. Qui et velit facilis nostrum maxime optio fugiat."], ["image_url", "https://robohash.org/animiutrepellendus.png?size=300x300&set=set1"], ["inventory_quantity", 3], ["name", "microchip"], ["price", 106.52], ["updated_at", "2016-05-30 00:57:52.922044"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:52.949542"], ["name", "Textbook"], ["updated_at", "2016-05-30 00:57:52.949542"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 1], ["created_at", "2016-05-30 00:57:52.959611"], ["product_id", 1], ["updated_at", "2016-05-30 00:57:52.959611"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:52.963468"], ["description", "Aut aut aut et quaerat minus animi. Quos laborum hic sit sapiente sunt. Et aliquid eaque error recusandae velit eligendi. Voluptates odit sint ratione maxime molestias est totam. Autem in deserunt maiores vero neque sunt."], ["image_url", "https://robohash.org/doloribusminimaexplicabo.png?size=300x300&set=set1"], ["inventory_quantity", 14], ["name", "protocol"], ["price", 489.06], ["updated_at", "2016-05-30 00:57:52.963468"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:52.967168"], ["name", "Speech"], ["updated_at", "2016-05-30 00:57:52.967168"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", "2016-05-30 00:57:52.968987"], ["product_id", 2], ["updated_at", "2016-05-30 00:57:52.968987"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:52.972083"], ["description", "Possimus impedit libero. Aliquam a sequi. Illum est sint eum et voluptatem."], ["image_url", "https://robohash.org/etblanditiisnesciunt.png?size=300x300&set=set1"], ["inventory_quantity", 19], ["name", "sensor"], ["price", 480.29], ["updated_at", "2016-05-30 00:57:52.972083"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:52.975730"], ["name", "Classic"], ["updated_at", "2016-05-30 00:57:52.975730"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 3], ["created_at", "2016-05-30 00:57:52.977498"], ["product_id", 3], ["updated_at", "2016-05-30 00:57:52.977498"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:52.981333"], ["description", "Dolores consequatur consectetur autem dolorem. Assumenda deserunt voluptas quis. Ad neque enim quaerat inventore deleniti consequatur perferendis."], ["image_url", "https://robohash.org/voluptatemestducimus.png?size=300x300&set=set1"], ["inventory_quantity", 10], ["name", "feed"], ["price", 216.29], ["updated_at", "2016-05-30 00:57:52.981333"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:52.985644"], ["name", "Textbook"], ["updated_at", "2016-05-30 00:57:52.985644"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2016-05-30 00:57:52.987355"], ["product_id", 4], ["updated_at", "2016-05-30 00:57:52.987355"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:52.990196"], ["description", "Velit voluptate nisi eum libero eius unde. Error reprehenderit voluptas ut quod quas aut et. Officiis ipsum commodi. Exercitationem impedit quia quasi consequuntur consequatur sint odio."], ["image_url", "https://robohash.org/siteaamet.png?size=300x300&set=set1"], ["inventory_quantity", 8], ["name", "protocol"], ["price", 454.45], ["updated_at", "2016-05-30 00:57:52.990196"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:52.993643"], ["name", "Fable"], ["updated_at", "2016-05-30 00:57:52.993643"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 5], ["created_at", "2016-05-30 00:57:52.995089"], ["product_id", 5], ["updated_at", "2016-05-30 00:57:52.995089"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:52.998262"], ["description", "Et et sed labore. Harum qui exercitationem aut. Illum est eius officia molestiae et."], ["image_url", "https://robohash.org/minimaerrorenim.png?size=300x300&set=set1"], ["inventory_quantity", 11], ["name", "hard drive"], ["price", 120.51], ["updated_at", "2016-05-30 00:57:52.998262"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:53.002362"], ["name", "Textbook"], ["updated_at", "2016-05-30 00:57:53.002362"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 6], ["created_at", "2016-05-30 00:57:53.003878"], ["product_id", 6], ["updated_at", "2016-05-30 00:57:53.003878"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:53.006735"], ["description", "Amet sapiente placeat sint. Optio non eveniet quo consequatur voluptatum quia et. Ut dolorem quis vitae. Facere alias corporis aliquam necessitatibus labore quibusdam."], ["image_url", "https://robohash.org/molestiaeeaquemollitia.png?size=300x300&set=set1"], ["inventory_quantity", 7], ["name", "monitor"], ["price", 417.91], ["updated_at", "2016-05-30 00:57:53.006735"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.010656"], ["name", "Crime/Detective"], ["updated_at", "2016-05-30 00:57:53.010656"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 7], ["created_at", "2016-05-30 00:57:53.012273"], ["product_id", 7], ["updated_at", "2016-05-30 00:57:53.012273"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.015322"], ["description", "Vero eum corporis hic possimus eos. Aut aliquam est quo labore illum sed. Quisquam qui neque sint fugiat unde doloribus reiciendis. Voluptas minus eligendi ab repudiandae ducimus. Eos totam eligendi illum."], ["image_url", "https://robohash.org/accusamusrerumquia.png?size=300x300&set=set1"], ["inventory_quantity", 10], ["name", "hard drive"], ["price", 244.57], ["updated_at", "2016-05-30 00:57:53.015322"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:53.019489"], ["name", "Science fiction "], ["updated_at", "2016-05-30 00:57:53.019489"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 8], ["created_at", "2016-05-30 00:57:53.021430"], ["product_id", 8], ["updated_at", "2016-05-30 00:57:53.021430"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:53.024511"], ["description", "Repellat et qui ducimus molestiae dolor. Vitae labore mollitia tempora est omnis ullam repellat. Et ut quia libero."], ["image_url", "https://robohash.org/placeatbeataequia.png?size=300x300&set=set1"], ["inventory_quantity", 15], ["name", "circuit"], ["price", 200.3], ["updated_at", "2016-05-30 00:57:53.024511"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.028182"], ["name", "Horror"], ["updated_at", "2016-05-30 00:57:53.028182"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 9], ["created_at", "2016-05-30 00:57:53.029694"], ["product_id", 9], ["updated_at", "2016-05-30 00:57:53.029694"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.032583"], ["description", "Repellat qui doloremque eum magnam quo et. Est ut sequi. Beatae dolores aut aliquid ut. Cum ut ducimus et recusandae et."], ["image_url", "https://robohash.org/hictotammodi.png?size=300x300&set=set1"], ["inventory_quantity", 4], ["name", "driver"], ["price", 477.49], ["updated_at", "2016-05-30 00:57:53.032583"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:53.036832"], ["name", "Fiction in verse"], ["updated_at", "2016-05-30 00:57:53.036832"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 10], ["created_at", "2016-05-30 00:57:53.038479"], ["product_id", 10], ["updated_at", "2016-05-30 00:57:53.038479"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:53.041329"], ["description", "Magnam deserunt eaque id quisquam magni. Modi iure molestias. Et sit autem similique assumenda illo hic facere. Eum asperiores quo. Eos quos vel aut qui."], ["image_url", "https://robohash.org/eaconsequunturmollitia.png?size=300x300&set=set1"], ["inventory_quantity", 9], ["name", "feed"], ["price", 126.29], ["updated_at", "2016-05-30 00:57:53.041329"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.045405"], ["name", "Humor"], ["updated_at", "2016-05-30 00:57:53.045405"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 11], ["created_at", "2016-05-30 00:57:53.047281"], ["product_id", 11], ["updated_at", "2016-05-30 00:57:53.047281"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.050458"], ["description", "Suscipit error ipsam excepturi nesciunt esse. Molestias earum animi ut sed aut. Eligendi molestiae sint est omnis voluptatem. Qui ex accusamus inventore est."], ["image_url", "https://robohash.org/aperiambeataeet.png?size=300x300&set=set1"], ["inventory_quantity", 18], ["name", "microchip"], ["price", 43.83], ["updated_at", "2016-05-30 00:57:53.050458"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:53.054142"], ["name", "Metafiction"], ["updated_at", "2016-05-30 00:57:53.054142"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 12], ["created_at", "2016-05-30 00:57:53.055685"], ["product_id", 12], ["updated_at", "2016-05-30 00:57:53.055685"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:53.058896"], ["description", "Amet voluptas inventore provident accusantium vel accusamus culpa. Atque aut tempora ad dolor. Placeat ipsam qui dolorem fugit. Optio placeat occaecati repudiandae et. Et eius aut."], ["image_url", "https://robohash.org/recusandaefugaquis.png?size=300x300&set=set1"], ["inventory_quantity", 7], ["name", "circuit"], ["price", 490.92], ["updated_at", "2016-05-30 00:57:53.058896"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.062203"], ["name", "Mythology"], ["updated_at", "2016-05-30 00:57:53.062203"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 13], ["created_at", "2016-05-30 00:57:53.063702"], ["product_id", 13], ["updated_at", "2016-05-30 00:57:53.063702"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.066978"], ["description", "Qui incidunt et porro aliquid velit ut. Hic vel unde magni dolores alias vero. Optio et libero suscipit earum porro. Eveniet qui quae et. Adipisci accusamus doloribus maxime officiis."], ["image_url", "https://robohash.org/reprehenderitestautem.png?size=300x300&set=set1"], ["inventory_quantity", 3], ["name", "card"], ["price", 361.58], ["updated_at", "2016-05-30 00:57:53.066978"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:53.070650"], ["name", "Humor"], ["updated_at", "2016-05-30 00:57:53.070650"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 14], ["created_at", "2016-05-30 00:57:53.072231"], ["product_id", 14], ["updated_at", "2016-05-30 00:57:53.072231"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:53.075120"], ["description", "Quis sed debitis ut sint et. Saepe labore corrupti sed ut. Assumenda earum enim nobis aperiam numquam iusto sequi. Dolorem ipsam alias nam qui tempora."], ["image_url", "https://robohash.org/quivitaeeveniet.png?size=300x300&set=set1"], ["inventory_quantity", 11], ["name", "driver"], ["price", 460.67], ["updated_at", "2016-05-30 00:57:53.075120"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.078434"], ["name", "Historical fiction"], ["updated_at", "2016-05-30 00:57:53.078434"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 15], ["created_at", "2016-05-30 00:57:53.080038"], ["product_id", 15], ["updated_at", "2016-05-30 00:57:53.080038"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('tom') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('tom@tom.com') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:53.199934"], ["email", "tom@tom.com"], ["password_digest", "$2a$10$p4pyjgwMZ5wK/QQe4PeKhOP2hJIwHJ5Sm.x69PHilMIzaLoGjTw0a"], ["updated_at", "2016-05-30 00:57:53.199934"], ["username", "tom"]]
+  [1m[35m (18.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('tim') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('tim@tim.com') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("admin", "created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)  [["admin", "t"], ["created_at", "2016-05-30 00:57:53.314068"], ["email", "tim@tim.com"], ["password_digest", "$2a$10$E0xf9sDCjcApyL4QL/rju.ewqk/mgRjbUkx3FwAnuG7Iu4ro4SyVe"], ["updated_at", "2016-05-30 00:57:53.314068"], ["username", "tim"]]
+  [1m[36m (31.1ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.599984"], ["description", "Voluptates ut dolores ea quia laboriosam optio. Vitae aut et aliquam voluptatem. Odit dolores sed delectus beatae. Velit qui aut ex quo quis."], ["image_url", "https://robohash.org/autinciduntad.png?size=300x300&set=set1"], ["inventory_quantity", 6], ["name", "array"], ["price", 492.38], ["updated_at", "2016-05-30 00:57:59.599984"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.628818"], ["name", "Fantasy"], ["updated_at", "2016-05-30 00:57:59.628818"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 16], ["created_at", "2016-05-30 00:57:59.636447"], ["product_id", 16], ["updated_at", "2016-05-30 00:57:59.636447"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:59.641320"], ["description", "Adipisci ipsam accusamus. Qui est eveniet eius nihil earum quae. Sequi repellendus doloremque laboriosam eum ab omnis."], ["image_url", "https://robohash.org/numquamnostrumcorrupti.png?size=300x300&set=set1"], ["inventory_quantity", 18], ["name", "microchip"], ["price", 126.48], ["updated_at", "2016-05-30 00:57:59.641320"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.645320"], ["name", "Fiction in verse"], ["updated_at", "2016-05-30 00:57:59.645320"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 17], ["created_at", "2016-05-30 00:57:59.646961"], ["product_id", 17], ["updated_at", "2016-05-30 00:57:59.646961"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.650698"], ["description", "Nobis atque aperiam totam id. Aperiam doloribus expedita earum ea totam. Neque sunt repellat qui maiores. Fugit voluptas deleniti."], ["image_url", "https://robohash.org/ducimusquodqui.png?size=300x300&set=set1"], ["inventory_quantity", 15], ["name", "capacitor"], ["price", 95.19], ["updated_at", "2016-05-30 00:57:59.650698"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.655111"], ["name", "Historical fiction"], ["updated_at", "2016-05-30 00:57:59.655111"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 18], ["created_at", "2016-05-30 00:57:59.656917"], ["product_id", 18], ["updated_at", "2016-05-30 00:57:59.656917"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:59.659747"], ["description", "Corporis minus exercitationem. Et ipsum qui sint. Rem adipisci deleniti labore veritatis qui ipsum eius."], ["image_url", "https://robohash.org/eosrerumut.png?size=300x300&set=set1"], ["inventory_quantity", 19], ["name", "driver"], ["price", 55.63], ["updated_at", "2016-05-30 00:57:59.659747"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.664010"], ["name", "Metafiction"], ["updated_at", "2016-05-30 00:57:59.664010"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 19], ["created_at", "2016-05-30 00:57:59.666357"], ["product_id", 19], ["updated_at", "2016-05-30 00:57:59.666357"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.669778"], ["description", "Exercitationem fugiat molestiae. Minima repellat et est iste totam distinctio sed. Veniam dolores dolorem voluptatem pariatur ullam occaecati quia. Quo odit incidunt quos. Necessitatibus sit pariatur excepturi omnis est id."], ["image_url", "https://robohash.org/officiisoccaecatiquaerat.png?size=300x300&set=set1"], ["inventory_quantity", 11], ["name", "feed"], ["price", 211.25], ["updated_at", "2016-05-30 00:57:59.669778"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.673726"], ["name", "Western"], ["updated_at", "2016-05-30 00:57:59.673726"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 20], ["created_at", "2016-05-30 00:57:59.675261"], ["product_id", 20], ["updated_at", "2016-05-30 00:57:59.675261"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:59.678664"], ["description", "Numquam qui perspiciatis maiores tenetur placeat eum. Dolor sit sit. Aliquid doloremque aspernatur repellendus. Consequatur aliquam minus sit iusto."], ["image_url", "https://robohash.org/estitaquevelit.png?size=300x300&set=set1"], ["inventory_quantity", 14], ["name", "application"], ["price", 428.99], ["updated_at", "2016-05-30 00:57:59.678664"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.682239"], ["name", "Reference book"], ["updated_at", "2016-05-30 00:57:59.682239"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 21], ["created_at", "2016-05-30 00:57:59.683690"], ["product_id", 21], ["updated_at", "2016-05-30 00:57:59.683690"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.686594"], ["description", "Nisi eveniet id rem odit nemo voluptatem corporis. At accusamus quae alias facere in. Consequuntur repellat non nihil exercitationem animi voluptatibus ut. Libero corporis consequatur. Odit officiis consequuntur."], ["image_url", "https://robohash.org/estcumqueomnis.png?size=300x300&set=set1"], ["inventory_quantity", 19], ["name", "microchip"], ["price", 381.53], ["updated_at", "2016-05-30 00:57:59.686594"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.690302"], ["name", "Essay"], ["updated_at", "2016-05-30 00:57:59.690302"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 22], ["created_at", "2016-05-30 00:57:59.691891"], ["product_id", 22], ["updated_at", "2016-05-30 00:57:59.691891"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:59.695242"], ["description", "Ut dolores et unde beatae. Illum ea aliquid. Necessitatibus perferendis iusto. In numquam omnis."], ["image_url", "https://robohash.org/sapienteesseeos.png?size=300x300&set=set1"], ["inventory_quantity", 1], ["name", "firewall"], ["price", 22.64], ["updated_at", "2016-05-30 00:57:59.695242"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.698630"], ["name", "Crime/Detective"], ["updated_at", "2016-05-30 00:57:59.698630"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 23], ["created_at", "2016-05-30 00:57:59.700470"], ["product_id", 23], ["updated_at", "2016-05-30 00:57:59.700470"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.703410"], ["description", "Velit odio dolor ex consectetur soluta. Voluptatem eius ea. Voluptate molestias impedit in. Sed aperiam voluptas."], ["image_url", "https://robohash.org/etsolutaat.png?size=300x300&set=set1"], ["inventory_quantity", 6], ["name", "panel"], ["price", 409.97], ["updated_at", "2016-05-30 00:57:59.703410"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.707940"], ["name", "Mythopoeia"], ["updated_at", "2016-05-30 00:57:59.707940"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 24], ["created_at", "2016-05-30 00:57:59.709516"], ["product_id", 24], ["updated_at", "2016-05-30 00:57:59.709516"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:59.712539"], ["description", "Est quasi ut occaecati numquam eos perferendis. Doloribus culpa architecto qui. Mollitia iure laudantium. Corporis blanditiis impedit omnis."], ["image_url", "https://robohash.org/voluptatesetsapiente.png?size=300x300&set=set1"], ["inventory_quantity", 3], ["name", "array"], ["price", 425.41], ["updated_at", "2016-05-30 00:57:59.712539"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.717341"], ["name", "Science fiction "], ["updated_at", "2016-05-30 00:57:59.717341"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 25], ["created_at", "2016-05-30 00:57:59.718911"], ["product_id", 25], ["updated_at", "2016-05-30 00:57:59.718911"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.723113"], ["description", "Quia fugiat et. Similique numquam in dolore. Ad qui quia esse culpa totam veniam."], ["image_url", "https://robohash.org/nihiletut.png?size=300x300&set=set1"], ["inventory_quantity", 17], ["name", "hard drive"], ["price", 388.7], ["updated_at", "2016-05-30 00:57:59.723113"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.727761"], ["name", "Mythopoeia"], ["updated_at", "2016-05-30 00:57:59.727761"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 26], ["created_at", "2016-05-30 00:57:59.729587"], ["product_id", 26], ["updated_at", "2016-05-30 00:57:59.729587"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:59.733649"], ["description", "Asperiores et debitis sit qui numquam. Tenetur fuga veritatis culpa et. Voluptas eveniet rem laudantium. Harum et nemo officiis. Nobis et veritatis fuga ex."], ["image_url", "https://robohash.org/etatqueblanditiis.png?size=300x300&set=set1"], ["inventory_quantity", 12], ["name", "firewall"], ["price", 255.73], ["updated_at", "2016-05-30 00:57:59.733649"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.738477"], ["name", "Speech"], ["updated_at", "2016-05-30 00:57:59.738477"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 27], ["created_at", "2016-05-30 00:57:59.740176"], ["product_id", 27], ["updated_at", "2016-05-30 00:57:59.740176"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.743158"], ["description", "Adipisci delectus officia quaerat aut molestias dolores. Est optio odio nisi. Consequatur molestias quis nemo. At suscipit delectus amet sed. Quibusdam dicta harum qui laborum delectus ducimus sed."], ["image_url", "https://robohash.org/quiautrecusandae.png?size=300x300&set=set1"], ["inventory_quantity", 15], ["name", "alarm"], ["price", 229.84], ["updated_at", "2016-05-30 00:57:59.743158"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.748731"], ["name", "Science fiction "], ["updated_at", "2016-05-30 00:57:59.748731"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 28], ["created_at", "2016-05-30 00:57:59.750279"], ["product_id", 28], ["updated_at", "2016-05-30 00:57:59.750279"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:57:59.754123"], ["description", "Non temporibus qui nobis deserunt magnam officiis optio. Nihil porro voluptas possimus et perspiciatis. Est possimus expedita porro quia sit."], ["image_url", "https://robohash.org/consequaturquasiquidem.png?size=300x300&set=set1"], ["inventory_quantity", 3], ["name", "card"], ["price", 244.28], ["updated_at", "2016-05-30 00:57:59.754123"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.759157"], ["name", "Realistic fiction"], ["updated_at", "2016-05-30 00:57:59.759157"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 29], ["created_at", "2016-05-30 00:57:59.760729"], ["product_id", 29], ["updated_at", "2016-05-30 00:57:59.760729"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:57:59.763904"], ["description", "Doloremque sunt et numquam molestias. Pariatur sint voluptatum ullam. Qui et laboriosam a id beatae porro."], ["image_url", "https://robohash.org/consequaturnihilsuscipit.png?size=300x300&set=set1"], ["inventory_quantity", 12], ["name", "matrix"], ["price", 50.5], ["updated_at", "2016-05-30 00:57:59.763904"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:57:59.768324"], ["name", "Horror"], ["updated_at", "2016-05-30 00:57:59.768324"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 30], ["created_at", "2016-05-30 00:57:59.770247"], ["product_id", 30], ["updated_at", "2016-05-30 00:57:59.770247"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('tom') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('tom@tom.com') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateProducts (20160523220337)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "image_url" varchar(255), "description" varchar(255), "inventory_quantity" integer, "price" decimal, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160523220337"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateUsers (20160525212014)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "password_digest" varchar(255), "provider" varchar(255), "uid" varchar(255), "name" varchar(255), "oauth_token" varchar(255), "oauth_expires_at" varchar(255), "image_url" varchar(255) DEFAULT 'https://robohash.org/ipsumipsatemporibus.png?size=300x300&set=set1', "admin" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160525212014"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateCategories (20160525234829)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160525234829"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateCategoryProducts (20160525235436)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "category_products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "product_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160525235436"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateOrders (20160527213843)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "total" decimal, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160527213843"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateOrderProducts (20160527214136)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "order_products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_order_products_on_product_id" ON "order_products" ("product_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_order_products_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_order_products_on_product_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_order_products_on_order_id" ON "order_products" ("order_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160527214136"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_order_products_on_order_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_order_products_on_order_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_order_products_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_order_products_on_product_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.153124"], ["description", "Voluptas eveniet consequatur blanditiis. Deleniti eum quia quo. Laborum ab aut dolorem et voluptas voluptates porro."], ["image_url", "https://robohash.org/consequunturbeataecumque.png?size=300x300&set=set1"], ["inventory_quantity", 9], ["name", "application"], ["price", 343.01], ["updated_at", "2016-05-30 00:58:20.153124"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.184250"], ["name", "Narrative nonfiction"], ["updated_at", "2016-05-30 00:58:20.184250"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2016-05-30 00:58:20.191966"], ["product_id", 1], ["updated_at", "2016-05-30 00:58:20.191966"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.195926"], ["description", "Nam mollitia odit debitis sunt distinctio. Ut accusamus iure. Voluptas totam enim dolores atque commodi. Aliquid voluptatem quasi natus. Tempore omnis provident et in."], ["image_url", "https://robohash.org/maximepossimuslibero.png?size=300x300&set=set1"], ["inventory_quantity", 4], ["name", "pixel"], ["price", 448.64], ["updated_at", "2016-05-30 00:58:20.195926"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.199643"], ["name", "Mythopoeia"], ["updated_at", "2016-05-30 00:58:20.199643"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 2], ["created_at", "2016-05-30 00:58:20.201180"], ["product_id", 2], ["updated_at", "2016-05-30 00:58:20.201180"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.204700"], ["description", "Delectus deleniti atque quia. Qui totam autem recusandae repellendus. Iusto est consequatur qui quia voluptatem ab numquam. Nisi deleniti laboriosam quaerat et voluptatibus."], ["image_url", "https://robohash.org/etplaceattenetur.png?size=300x300&set=set1"], ["inventory_quantity", 3], ["name", "array"], ["price", 327.88], ["updated_at", "2016-05-30 00:58:20.204700"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.208412"], ["name", "Narrative nonfiction"], ["updated_at", "2016-05-30 00:58:20.208412"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2016-05-30 00:58:20.210168"], ["product_id", 3], ["updated_at", "2016-05-30 00:58:20.210168"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.214445"], ["description", "Explicabo consequatur corrupti quia recusandae aut. Labore eveniet mollitia possimus quo ea esse. Fugiat minima enim officia."], ["image_url", "https://robohash.org/autemnemoest.png?size=300x300&set=set1"], ["inventory_quantity", 14], ["name", "port"], ["price", 209.67], ["updated_at", "2016-05-30 00:58:20.214445"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.218612"], ["name", "Textbook"], ["updated_at", "2016-05-30 00:58:20.218612"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-05-30 00:58:20.220305"], ["product_id", 4], ["updated_at", "2016-05-30 00:58:20.220305"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.224078"], ["description", "Tenetur saepe nulla consectetur libero pariatur. Hic quam cupiditate. Eaque id sequi quos. Cumque quia facere."], ["image_url", "https://robohash.org/nihilminuslaudantium.png?size=300x300&set=set1"], ["inventory_quantity", 4], ["name", "sensor"], ["price", 164.9], ["updated_at", "2016-05-30 00:58:20.224078"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.228399"], ["name", "Mythology"], ["updated_at", "2016-05-30 00:58:20.228399"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 5], ["created_at", "2016-05-30 00:58:20.229970"], ["product_id", 5], ["updated_at", "2016-05-30 00:58:20.229970"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.233596"], ["description", "Porro rerum odit eum laboriosam. Vitae voluptas ut. Sed et ipsum laudantium. Facere ullam est tenetur consectetur. Nihil sit ex."], ["image_url", "https://robohash.org/architectoutminus.png?size=300x300&set=set1"], ["inventory_quantity", 3], ["name", "alarm"], ["price", 157.98], ["updated_at", "2016-05-30 00:58:20.233596"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.237319"], ["name", "Tall tale"], ["updated_at", "2016-05-30 00:58:20.237319"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 6], ["created_at", "2016-05-30 00:58:20.239103"], ["product_id", 6], ["updated_at", "2016-05-30 00:58:20.239103"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.242939"], ["description", "Nisi officia corrupti velit doloremque blanditiis rem. Molestiae id praesentium. Ipsam nihil magnam sed amet sit."], ["image_url", "https://robohash.org/voluptatemautneque.png?size=300x300&set=set1"], ["inventory_quantity", 6], ["name", "bandwidth"], ["price", 271.1], ["updated_at", "2016-05-30 00:58:20.242939"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.247050"], ["name", "Essay"], ["updated_at", "2016-05-30 00:58:20.247050"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 7], ["created_at", "2016-05-30 00:58:20.248674"], ["product_id", 7], ["updated_at", "2016-05-30 00:58:20.248674"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.251832"], ["description", "Adipisci consequatur qui dolores aut veniam. Eum quisquam qui maxime ab ut aut aut. Consequatur et aliquid voluptatem architecto quo consequatur exercitationem."], ["image_url", "https://robohash.org/sunteaqueullam.png?size=300x300&set=set1"], ["inventory_quantity", 10], ["name", "firewall"], ["price", 490.38], ["updated_at", "2016-05-30 00:58:20.251832"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.255177"], ["name", "Mystery"], ["updated_at", "2016-05-30 00:58:20.255177"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 8], ["created_at", "2016-05-30 00:58:20.256902"], ["product_id", 8], ["updated_at", "2016-05-30 00:58:20.256902"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.260511"], ["description", "Perspiciatis omnis dolore voluptates. Dolorem harum ipsum sed non. Ab sint voluptatem labore quia. Amet enim impedit esse vero. Possimus odio accusantium magnam."], ["image_url", "https://robohash.org/quidoloresunt.png?size=300x300&set=set1"], ["inventory_quantity", 4], ["name", "microchip"], ["price", 83.93], ["updated_at", "2016-05-30 00:58:20.260511"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.264145"], ["name", "Classic"], ["updated_at", "2016-05-30 00:58:20.264145"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 9], ["created_at", "2016-05-30 00:58:20.265712"], ["product_id", 9], ["updated_at", "2016-05-30 00:58:20.265712"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.269441"], ["description", "Aliquid debitis ut et id eius. Et rerum ut consequatur quo maxime commodi. Quos qui rerum est adipisci id."], ["image_url", "https://robohash.org/nostrumquibusdamquam.png?size=300x300&set=set1"], ["inventory_quantity", 15], ["name", "bandwidth"], ["price", 221.02], ["updated_at", "2016-05-30 00:58:20.269441"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.273100"], ["name", "Humor"], ["updated_at", "2016-05-30 00:58:20.273100"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 10], ["created_at", "2016-05-30 00:58:20.274706"], ["product_id", 10], ["updated_at", "2016-05-30 00:58:20.274706"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.277740"], ["description", "Corrupti qui ut doloribus est quidem quia. Dolore nobis et. Quia harum aut minus dolorum sequi."], ["image_url", "https://robohash.org/delectusaliquamsimilique.png?size=300x300&set=set1"], ["inventory_quantity", 10], ["name", "firewall"], ["price", 9.0], ["updated_at", "2016-05-30 00:58:20.277740"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.281142"], ["name", "Metafiction"], ["updated_at", "2016-05-30 00:58:20.281142"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 11], ["created_at", "2016-05-30 00:58:20.282969"], ["product_id", 11], ["updated_at", "2016-05-30 00:58:20.282969"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.286744"], ["description", "At dolor vero. Sunt non perferendis. A voluptas vel. Necessitatibus consectetur est beatae et."], ["image_url", "https://robohash.org/eumestcumque.png?size=300x300&set=set1"], ["inventory_quantity", 2], ["name", "panel"], ["price", 255.57], ["updated_at", "2016-05-30 00:58:20.286744"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.290124"], ["name", "Suspense/Thriller"], ["updated_at", "2016-05-30 00:58:20.290124"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 12], ["created_at", "2016-05-30 00:58:20.291772"], ["product_id", 12], ["updated_at", "2016-05-30 00:58:20.291772"]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.295843"], ["description", "A officia dicta necessitatibus quod non consectetur odio. Et animi occaecati. Temporibus odio eligendi delectus aut dolorum sunt."], ["image_url", "https://robohash.org/errortemporeut.png?size=300x300&set=set1"], ["inventory_quantity", 1], ["name", "interface"], ["price", 113.26], ["updated_at", "2016-05-30 00:58:20.295843"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.299647"], ["name", "Metafiction"], ["updated_at", "2016-05-30 00:58:20.299647"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 13], ["created_at", "2016-05-30 00:58:20.301232"], ["product_id", 13], ["updated_at", "2016-05-30 00:58:20.301232"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.305589"], ["description", "Accusantium magni at impedit ut cupiditate. Molestias facere voluptatum voluptatem reprehenderit dolor accusantium aliquam. In quidem ex officia explicabo ut. Quod ad dolores dolor est dolorem. Non nisi quo laboriosam dolores ea doloribus esse."], ["image_url", "https://robohash.org/aliquidrerumomnis.png?size=300x300&set=set1"], ["inventory_quantity", 5], ["name", "hard drive"], ["price", 414.61], ["updated_at", "2016-05-30 00:58:20.305589"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.309627"], ["name", "Fantasy"], ["updated_at", "2016-05-30 00:58:20.309627"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)  [["category_id", 14], ["created_at", "2016-05-30 00:58:20.311231"], ["product_id", 14], ["updated_at", "2016-05-30 00:58:20.311231"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "image_url", "inventory_quantity", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-05-30 00:58:20.314899"], ["description", "Natus dolore eos. Dolor error beatae nostrum. Repudiandae et id expedita et eligendi. Harum corrupti quia sequi. Sequi amet dignissimos alias reiciendis."], ["image_url", "https://robohash.org/voluptatemoptiorem.png?size=300x300&set=set1"], ["inventory_quantity", 14], ["name", "driver"], ["price", 321.78], ["updated_at", "2016-05-30 00:58:20.314899"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-05-30 00:58:20.319642"], ["name", "Mythology"], ["updated_at", "2016-05-30 00:58:20.319642"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "category_products" ("category_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category_id", 15], ["created_at", "2016-05-30 00:58:20.321436"], ["product_id", 15], ["updated_at", "2016-05-30 00:58:20.321436"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('tom') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('tom@tom.com') LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-05-30 00:58:20.434888"], ["email", "tom@tom.com"], ["password_digest", "$2a$10$BiernBF5eYOeyyrpH1Vz0eHFtpv7InwXiUzk34Pi4rMjXn6q1En.W"], ["updated_at", "2016-05-30 00:58:20.434888"], ["username", "tom"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."username") = LOWER('tim') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('tim@tim.com') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("admin", "created_at", "email", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["admin", "t"], ["created_at", "2016-05-30 00:58:20.544597"], ["email", "tim@tim.com"], ["password_digest", "$2a$10$cOz/R4EUtolCeRHmgqT6UeNAMKpEse2fNOVEHz/Mg6WhzStPvzNk."], ["updated_at", "2016-05-30 00:58:20.544597"], ["username", "tim"]]
+  [1m[35m (27.5ms)[0m  commit transaction
