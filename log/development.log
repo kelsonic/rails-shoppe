@@ -743,3 +743,217 @@ Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 
 
 
 Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 18:37:07 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:09:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.haml within layouts/application (14.9ms)
+  Rendered layouts/_head.haml (66.1ms)
+  Rendered layouts/_nav.haml (4.4ms)
+  Rendered layouts/_notices.haml (2.2ms)
+  Rendered layouts/_footer.haml (0.8ms)
+  Rendered layouts/_scripts.haml (0.8ms)
+Completed 200 OK in 133ms (Views: 107.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:09:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:09:22 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:09:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:09:22 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:09:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:09:22 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:12:10 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.haml within layouts/application (4.6ms)
+WARNING on line 1 of /Users/apprentice/Desktop/rails-shoppe/app/assets/stylesheets/general.sass:
+This selector doesn't have any properties and will not be rendered.
+
+  Rendered layouts/_head.haml (68.1ms)
+  Rendered layouts/_nav.haml (5.2ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 86ms (Views: 84.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:10 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:12:10 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:10 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:10 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:10 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:12:57 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.haml within layouts/application (4.6ms)
+  Rendered layouts/_head.haml (65.6ms)
+  Rendered layouts/_nav.haml (0.6ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 79ms (Views: 76.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:12:57 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:57 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:57 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:57 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:57 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:12:57 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:13:05 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.haml within layouts/application (3.7ms)
+  Rendered layouts/_head.haml (66.3ms)
+  Rendered layouts/_nav.haml (0.5ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.0ms)
+  Rendered layouts/_scripts.haml (0.0ms)
+Completed 200 OK in 77ms (Views: 75.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:05 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:05 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:05 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:05 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:13:05 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:05 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:13:11 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.haml within layouts/application (4.0ms)
+  Rendered layouts/_head.haml (66.1ms)
+  Rendered layouts/_nav.haml (0.4ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.0ms)
+Completed 200 OK in 78ms (Views: 76.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:13:11 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:11 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:11 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:11 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:11 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:11 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:13:20 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.haml within layouts/application (3.8ms)
+  Rendered layouts/_head.haml (67.9ms)
+  Rendered layouts/_nav.haml (0.6ms)
+  Rendered layouts/_notices.haml (0.2ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 80ms (Views: 78.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:13:20 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:20 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:20 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:20 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:20 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:13:20 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.haml within layouts/application (4.4ms)
+  Rendered layouts/_head.haml (75.9ms)
+  Rendered layouts/_nav.haml (0.5ms)
+  Rendered layouts/_notices.haml (0.1ms)
+  Rendered layouts/_footer.haml (0.0ms)
+  Rendered layouts/_scripts.haml (0.0ms)
+Completed 200 OK in 90ms (Views: 87.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
