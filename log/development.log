@@ -957,3 +957,33 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 
 
 
 Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:14:58 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-29 19:18:10 -0700
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.haml within layouts/application (4.0ms)
+  Rendered layouts/_head.haml (36.8ms)
+  Rendered layouts/_nav.haml (3.9ms)
+  Rendered layouts/_notices.haml (0.2ms)
+  Rendered layouts/_footer.haml (0.1ms)
+  Rendered layouts/_scripts.haml (0.1ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-05-29 19:18:10 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-05-29 19:18:10 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-05-29 19:18:10 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-05-29 19:18:10 -0700
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2016-05-29 19:18:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-05-29 19:18:10 -0700
